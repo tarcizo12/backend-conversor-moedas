@@ -1,0 +1,27 @@
+{
+  "name": "backend-conversor-moedas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tarcizo12/backend-conversor-moedas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/tarcizo12/backend-conversor-moedas/issues"
+  },
+  "homepage": "https://github.com/tarcizo12/backend-conversor-moedas#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.0",
+    "xml2js": "^0.4.23",
+    "cors": "^2.8.5"
+  }
+}
