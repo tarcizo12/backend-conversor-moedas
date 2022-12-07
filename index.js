@@ -30,6 +30,6 @@ const url = "https://economia.awesomeapi.com.br/xml/available/uniq"
 }
 );
 
-app.listen(3000, () => 
-console.log('Servidor iniciado na porta 3000')
+app.listen(3003, () => 
+console.log('Servidor iniciado na porta 3003')
 );
