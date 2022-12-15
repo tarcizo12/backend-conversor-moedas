@@ -1,1 +1,3 @@
-console.log("aaaa")
+require('dotenv').config();
+
+console.log(process.env.appId)
