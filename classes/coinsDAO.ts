@@ -2,6 +2,7 @@ import firebase  from "firebase/app";
 import "firebase/firestore"
 import { DAO } from "../classes/DAO"
 
+
 export class CoinDao implements DAO{
     instance: firebase.firestore.CollectionReference<firebase.firestore.DocumentData>;
 
@@ -18,11 +19,14 @@ export class CoinDao implements DAO{
         //TODO
     }
 
-    add(coin: string, value: number): void{
-        this.instance.add({ coin: coin , value:value})
-        .then((res) =>{
-            console.log(`Moeda cadastrada no id ${res.id}`)
-        })
+    async add(coin: string, value: number): Promise<firebase.firestore.DocumentReference<firebase.firestore.DocumentData>>{
+        try{
+            const response = await this.instance.add({ coin: coin , value:value})
+            return response
+        }catch(err){
+            console.log("Erro ao cadastrar moeda")
+            throw(err)
+        } 
     }
 
 }
