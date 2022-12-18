@@ -11,9 +11,4 @@ export async function addCoinsAction(coin: string, value: number) {
 }
 
 
-async function teste(){
-    const teste = await addCoinsAction('teste',100)
-    console.log(`moeda cadastrada em ${teste}`)
-}
 
-teste()

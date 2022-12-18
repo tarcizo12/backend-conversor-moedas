@@ -13,7 +13,12 @@ export class CoinDao implements DAO{
         //TODO
     }
     set(id: String, coin: String, value: Number): void {
-        //TODO
+        try {
+            
+        } catch (err) {
+            console.log("Erro ao atualizar moeda")
+            throw(err)
+        }
     }
     delete(id: String): void {
         //TODO
