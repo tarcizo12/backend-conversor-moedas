@@ -23,11 +23,13 @@ export async function updateCoinAction(id:string, coin: string, value: number) {
 //Funcao add
 // addCoinsAction("brl",5.3).then((coin)=>{
 //     console.log(`moeda cadastrada em ${coin}`)
+//     process.exit();
 // })
 
 //Funcao update
 const key = "81fUSndXSeGpPmBzxc6A";
 updateCoinAcess(key, "argentina",2.5).then((res)=>{
-    console.log("Atualizado com sucesso!" + res)
+    console.log("Atualizado com sucesso!");
+    process.exit();
 });
 
