@@ -13,3 +13,12 @@ export async function addCoinAcess(coin: string, value: number) {
     }
 }
 
+
+export async function updateCoinAcess(id: string, coin: string, value: number) {
+    try {
+        return await coinsDAo.set(id, coin, value);   
+    } catch (error) {
+        console.log("Falha atualizar moeda");
+        throw(error)
+    }
+}

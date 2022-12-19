@@ -6,7 +6,7 @@ export interface DAO{
     
     get(): void;
     add(coin: String, value: number): Promise<firebase.firestore.DocumentReference<firebase.firestore.DocumentData>>;
-    set(id: String,coin: String, value: Number): void;
+    set(id: string,coin: string, value: number): void;
     delete(id: String): void;
 
 }
