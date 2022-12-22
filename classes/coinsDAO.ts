@@ -9,7 +9,15 @@ export class CoinDao implements DAO{
     constructor(instance: firebase.firestore.CollectionReference<firebase.firestore.DocumentData>){
         this.instance = instance;
     }
-    get(): void {
+
+    async get(): Promise<firebase.firestore.QuerySnapshot<firebase.firestore.DocumentData>> {
+        try {
+            const response = await this.instance.get();
+            return response;
+        } catch (err) {
+            console.log("Erro ao obter lista de moedas");
+            throw(err);
+        }
         //TODO
     }
 
