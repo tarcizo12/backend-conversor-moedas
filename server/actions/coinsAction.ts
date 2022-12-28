@@ -48,8 +48,8 @@ export async function getCoinAction() {
 
 
 //Funcao get
-getCoinAction().then((list)=>{
-     console.log(list);
-     console.log("Lista recebida");
-     process.exit();
- });
+//getCoinAction().then((list)=>{
+//     console.log(list);
+//     console.log("Lista recebida");
+//     process.exit();
+// });
