@@ -10,7 +10,6 @@ export async function addCoinsAction(coin: string, value: number) {
     }
 }
 
-
 export async function updateCoinAction(id:string, coin: string, value: number) {
     try {
         const response = await updateCoinAcess(id,coin,value);
@@ -35,7 +34,7 @@ export async function getCoinAction() {
 }
 
 //Funcao add
-// addCoinsAction("brl",5.3).then((coin)=>{
+// addCoinsAction("rubro",8.9).then((coin)=>{
 //     console.log(`moeda cadastrada em ${coin}`)
 //     process.exit();
 // })
@@ -49,9 +48,8 @@ export async function getCoinAction() {
 
 
 //Funcao get
-
 getCoinAction().then((list)=>{
-    console.log(list);
-    console.log("Lista recebida");
-    process.exit();
-});
+     console.log(list);
+     console.log("Lista recebida");
+     process.exit();
+ });
