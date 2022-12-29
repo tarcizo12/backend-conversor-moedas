@@ -1,7 +1,7 @@
 import { addCoinAcess, updateCoinAcess, getCoinAcess } from "../dataAcess/coinsAcess";
 
 
-export async function addCoinsAction(coin: string, value: number) {
+async function addCoinsAction(coin: string, value: number) {
     try {
         const response = await addCoinAcess(coin,value);
         return response.id;
@@ -10,7 +10,7 @@ export async function addCoinsAction(coin: string, value: number) {
     }
 }
 
-export async function updateCoinAction(id:string, coin: string, value: number) {
+async function updateCoinAction(id:string, coin: string, value: number) {
     try {
         const response = await updateCoinAcess(id,coin,value);
         return response;
@@ -19,7 +19,7 @@ export async function updateCoinAction(id:string, coin: string, value: number) {
     }
 }
 
-export async function getCoinAction() {
+async function getCoinAction() {
     try {
         const response = await getCoinAcess();
         const listCoins: any[] = [];
@@ -32,6 +32,8 @@ export async function getCoinAction() {
         console.log("Erro ao acesar lista de moedas")
     }
 }
+
+export { addCoinsAction , updateCoinAction , getCoinAction}
 
 //Funcao add
 // addCoinsAction("rubro",8.9).then((coin)=>{

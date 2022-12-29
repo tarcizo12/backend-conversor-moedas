@@ -1,5 +1,5 @@
 import { response, Router } from "express";
-import { getCoinAction}  from '../../actions/coinsAction'
+import { getCoinAction, addCoinsAction}  from '../../actions/coinsAction'
 
 const router = Router();
 
@@ -25,5 +25,14 @@ router.get('/',async (request, response)=>{
         console.log(`Erro ao solicitar informacoes: ${error}`);
     }
 });
+
+
+router.post('/',async (request , response) => {
+    const bodyRequst = request.body
+    
+    if(bodyRequst){
+        response.status(200).send("Objeto adicionado")
+    }
+})
 
 export { router } 
