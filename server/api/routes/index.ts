@@ -27,28 +27,30 @@ router.get('/',async (request, response)=>{
 });
 
 
-router.post('/',async (request , response) => {
+router.post('/', async (request, response) => {
     try {
-        const bodyRequst = request.body
-        
-        if (bodyRequst.coin == undefined || bodyRequst.value == undefined) {
-            console.log("Faltaram informaçẽs, enviando flag")
-            response.status(200).send(false)
-        }else {
-            const nameCoin = bodyRequst.coin
-            const valueCoin = bodyRequst.value
-            
-            //Realiza envio somente quando a moeda for falsa
-            addCoinsAction(nameCoin,valueCoin)
-                .then((id)=>console.log(`Moeda salva no id ${id}`))
-                .finally(()=>response.status(200).send(true));
-            
-        }
-
-    }catch (error) {
-        response.send(response.statusCode)
+      const bodyRequst = request.body;
+  
+      if (!bodyRequst.coin || !bodyRequst.value) {
+        response.status(400).send('Faltam parâmetros obrigatórios');
+      } else {
+        const nameCoin = bodyRequst.coin;
+        const valueCoin = bodyRequst.value;
+  
+        // Realiza envio somente quando a moeda for falsa
+        addCoinsAction(nameCoin, valueCoin)
+          .then(id => console.log(`Moeda salva no id ${id}`))
+          .then(() => response.status(200).send(true))
+          .catch(error => {
+            console.error(error);
+            response.status(500).send('Erro ao salvar moeda');
+          });
+      }
+    } catch (error) {
+      console.error(error);
+      response.status(500).send('Erro interno do servidor');
     }
-    
-})
+  });
+  
 
 export { router } 
