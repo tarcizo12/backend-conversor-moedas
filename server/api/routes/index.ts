@@ -28,11 +28,27 @@ router.get('/',async (request, response)=>{
 
 
 router.post('/',async (request , response) => {
-    const bodyRequst = request.body
-    
-    if(bodyRequst){
-        response.status(200).send("Objeto adicionado")
+    try {
+        const bodyRequst = request.body
+        
+        if (bodyRequst.coin == undefined || bodyRequst.value == undefined) {
+            console.log("Faltaram informaçẽs, enviando flag")
+            response.status(200).send(false)
+        }else {
+            const nameCoin = bodyRequst.coin
+            const valueCoin = bodyRequst.value
+            
+            //Realiza envio somente quando a moeda for falsa
+            addCoinsAction(nameCoin,valueCoin)
+                .then((id)=>console.log(`Moeda salva no id ${id}`))
+                .finally(()=>response.status(200).send(true));
+            
+        }
+
+    }catch (error) {
+        response.send(response.statusCode)
     }
+    
 })
 
 export { router } 
